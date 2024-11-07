@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de Casa GoT</title>
+    <!--<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <header>
+        <h2>Creación Casa GoT</h2>
+    </header>
+    <div class="tablaFoto">
+        <div class="info">
+            <div class="nombreCasa">
+                <label for="nombreCasa">➢ <span>Nombre de la casa:</span></label>
+                <div>
+                    <input type="text" name="nombreCasa" id="nombreCasa">
+                </div>
+            </div>
+            <div class="reino">
+                <p>➢ <span>Reino: </span></p>
+                <p class="notice" id="reino"></p>
+            </div>
+            <div class="tabla">
+                <table>
+                    <tr>
+                        <th>Recurso</th>
+                        <th onclick="generarTiradasIniciales()">Inicial</th>
+                        <th onclick="generarReino()">Reino</th>
+                        <th onclick="generarSucesos()">Sucesos Históricos</th>
+                        <th onclick="pintarTotal()">Total</th>
+                    </tr>
+                    <tr>
+                        <td>Defensa</td>
+                        <td class="notice" id="defensa"></td>
+                        <td class="notice" id="defensaReino"></td>
+                        <td class="notice" id="defensaSucesos"></td>
+                        <td class="notice" id="defensaTotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Influencia</td>
+                        <td class="notice" id="influencia"></td>
+                        <td class="notice" id="influenciaReino"></td>
+                        <td class="notice" id="influenciaSucesos"></td>
+                        <td class="notice" id="influenciaTotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Tierras</td>
+                        <td class="notice" id="tierras"></td>
+                        <td class="notice" id="tierrasReino"></td>
+                        <td class="notice" id="tierrasSucesos"></td>
+                        <td class="notice" id="tierrasTotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Ley</td>
+                        <td class="notice" id="ley"></td>
+                        <td class="notice" id="leyReino"></td>
+                        <td class="notice" id="leySucesos"></td>
+                        <td class="notice" id="leyTotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Poblacion</td>
+                        <td class="notice" id="poblacion"></td>
+                        <td class="notice" id="poblacionReino"></td>
+                        <td class="notice" id="poblacionSucesos"></td>
+                        <td class="notice" id="poblacionTotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Poder</td>
+                        <td class="notice" id="poder"></td>
+                        <td class="notice" id="poderReino"></td>
+                        <td class="notice" id="poderSucesos"></td>
+                        <td class="notice" id="poderTotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Fortuna</td>
+                        <td class="notice" id="fortuna"></td>
+                        <td class="notice" id="fortunaReino"></td>
+                        <td class="notice" id="fortunaSucesos"></td>
+                        <td class="notice" id="fortunaTotal"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="notice fotoRegion" id="fotoRegion">
+            <img src="images/westeros.webp" alt="Genera la región">
+        </div>
+    </div>
+    <div class="sucesos">
+        <p>Sucesos Históricos:</p>
+        <div class="notice" id="sucesosHistoricos">
+            <!-- Lista de los sucesos históricos y su influencia -->
+        </div>
+    </div>
+    <div class="situacion">
+        <p>Situación Actual:</p>
+        <div class="notice" id="situacionActual">
+            <!-- Lista con la situación actual de la región -->
+        </div>
+    </div>
+</body>
+</html>

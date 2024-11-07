@@ -1,0 +1,175 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Oswald:wght@200..700&display=swap');
+
+/* Fuentes */
+.cinzel-Font {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Body y divs */
+body  {
+    background-image: url('images/fondo.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    
+    font-family: 'Cinzel', serif;
+    font-size: large;
+    margin: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+div,header {
+    width: 80%;
+}
+header {
+    font-size: x-large;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* Tabla */
+table {
+    border-radius: 5px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-weight: bolder;
+    text-align: center;
+}
+th {
+    border: 2px solid black ;
+    margin: 0;
+    padding: 8px;
+    text-decoration: underline;
+    background-color: rgb(81, 188, 192, 0.9);
+}
+td {
+    border: 2px solid black;
+    padding: 7px;
+}
+tr:nth-child(even) td {
+    background-color: rgb(204, 121, 200, 0.7);
+}
+tr td:first-child {
+    background-color: goldenrod;
+    padding-right: 30px;
+    text-align: left;
+}
+
+/* Nombre de la casa, reino y sucesos */
+div.reino,div.sucesos,div.situacion,div.nombreCasa {
+    border: 1.5px solid black;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(250, 235, 215,0.8);
+}
+div.nombreCasa,div.reino {
+    font-size: larger;
+}
+
+/* Div Sucesos */
+div.sucesos, div.situacion {
+    width: 90%;
+    padding: 10px;
+}
+div.sucesos {
+    display: flex;
+    flex-direction: column;
+}
+div.sucesos>p,div.situacion>p {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: underline;
+}
+div.sucesos ul {
+    margin: 0;
+}
+div.sucesos ul li{
+    margin-bottom: 5px;
+}
+div.sucesos li::marker {
+    content: "➢ ";
+}
+
+/* Div Reino */
+div.reino {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+div.reino p {
+    margin: 5px;
+}
+div.reino p:first-child {
+    margin-right: 7px;
+    margin-left: 5px;
+}
+div.reino span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Tabla y fotos */
+div.tablaFoto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 90%;
+    margin-bottom: 10px;
+}
+div.info {
+    display:flex;
+    flex-direction: column;
+}
+div.tabla {
+    margin-right: 5px;
+    height: 100%;
+}
+div.fotoRegion {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    max-width: 250px;
+}
+div>img {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+div.nombreCasa {
+    padding: 6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+div.nombreCasa span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+div.nombreCasa>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+div.nombreCasa input {
+    background-color: transparent;
+    border-radius: 5px;
+    border: transparent;
+    font-family: "Cinzel";
+    font-size: larger;
+    margin-bottom: 5px;
+    text-align: center;
+}
