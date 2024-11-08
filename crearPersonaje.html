@@ -32,12 +32,26 @@
                     <option value="Venerable">Venerable (80 o más años)</option>
                 </select>
             </div>
+            <div>
+                <table class="tabla">
+                    <tr>
+                        <th>Xp Habilidades</th>
+                        <th>Xp Especialidades</th>
+                        <th>Puntos de Destino</th>
+                    </tr>
+                    <tr>
+                        <td id="marcadorXpHabilidades"></td>
+                        <td id="marcadorXpEspecialidades"></td>
+                        <td id="marcadorPuntosDestino"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div id="tabla">
             <table class="tabla">
                 <tr>
                     <th colspan="2">Habilidad</th>
-                    <th id="nivelInformar">Nivel</th>
+                    <th id="rangoInformar">Rango</th>
                     <th>Especialidades</th>
                 </tr>
                 <tr>
@@ -51,37 +65,37 @@
                         <table class="especialidades">
                             <tr>
                                 <th colspan="2">Especialidad</th>
-                                <th>Nivel</th>
+                                <th>Rango</th>
                                 <th>Modificador Total</th>
                             </tr>
                             <tr>
                                 <td>Acrobacia</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelAcrobacia"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Contorsionismo</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelContorsionismo"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Equilibrio</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEquilibrio"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Esquivar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEsquivar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Rapidez</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelRapidez"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -104,37 +118,37 @@
                             <tr>
                                 <td>Arrojar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelArrojar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Correr</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelCorrer"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Fuerza</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelFuerza"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Nadar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelNadar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Saltar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelSaltar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Trepar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelTrepar"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -157,55 +171,55 @@
                             <tr>
                                 <td>Contundentes</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelContundente"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>De Asta</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelAsta"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>De Hoja Corta</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelHojaCorta"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>De Hoja Larga</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelHojaLarga"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Escudos</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEscudo"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Esgrima</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEsgrima"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Hachas</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelHacha"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Lanzas</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelLanza"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Pelea</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelPelea"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -228,19 +242,19 @@
                             <tr>
                                 <td>Callejeo</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelCallejeo"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Educación</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEducacion"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Investigación</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelInvestigacion"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -263,13 +277,13 @@
                             <tr>
                                 <td>Recuperación</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelRecuperacion"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Resistencia</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelResistencia"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -292,19 +306,19 @@
                             <tr>
                                 <td>Diagnosticar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelDiagnosticar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Tratar Dolencia</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelTratarDolencia"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Tratar Herida</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelTratarHerida"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -327,13 +341,13 @@
                             <tr>
                                 <td>Pasar Inadvertido</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelPasarInadvertido"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Sigilo</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelSigilo"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -356,25 +370,25 @@
                             <tr>
                                 <td>Actuar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelActuar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Disfrazarse</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelDisfrazarse"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Fullería</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelFulleria"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Mentir</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelMentir"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -397,25 +411,25 @@
                             <tr>
                                 <td>Administración</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelAdministracion"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Etiqueta</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEtiqueta"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Reputación</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelReputacion"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Torneos</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelTorneos"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -438,19 +452,19 @@
                             <tr>
                                 <td>Estrategia</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEstrategia"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Mando</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelMando"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Táctica</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelTactica"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -479,19 +493,19 @@
                             <tr>
                                 <td>Descifrar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelDescifrar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Lógica</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelLogica"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Memoria</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelMemoria"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -514,13 +528,13 @@
                             <tr>
                                 <td>Empatía</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelEmpatia"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Observación</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelObservacion"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -543,43 +557,43 @@
                             <tr>
                                 <td>Cautivar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelCautivar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Convencer</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelConvencer"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Incitar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelIncitar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Intimidar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelIntimidar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Negociar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelNegociar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Provocar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelProvocar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Seducir</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelSeducir"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -602,19 +616,19 @@
                             <tr>
                                 <td>Forzar Cerraduras</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelForzarCerraduras"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Juego de Manos</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelJuegoDeManos"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Robar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelRobar"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -637,25 +651,25 @@
                             <tr>
                                 <td>Armas Arrojadizas</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelArmasArrojadizas"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Arcos</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelArcos"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Asedio</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelAsedio"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Ballestas</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelBallestas"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -678,25 +692,25 @@
                             <tr>
                                 <td>Cazar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelCazar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Forrajear</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelForrajear"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Orientarse</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelOrientarse"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Rastrear</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelRastrear"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -719,25 +733,25 @@
                             <tr>
                                 <td>Adiestrar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelAdiestrar"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Cautivar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelCautivarAnimal"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Conducir</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelConducir"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Montar</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelMontar"></td>
                                 <td></td>
                             </tr>
                         </table>
@@ -760,19 +774,19 @@
                             <tr>
                                 <td>Coordinación</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelCoordinacion"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Coraje</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelCoraje"></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Dedicación</td>
                                 <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
-                                <td></td>
+                                <td id="nivelDedicacion"></td>
                                 <td></td>
                             </tr>
                         </table>

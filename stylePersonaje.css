@@ -33,7 +33,9 @@ td.botones {
     display: flex;
     flex-direction: column;
     padding: 0;
-    width: 30px;
+    
+    max-width: 30px;
+    min-width: 30px;
 }
 td.botones input[type="button"] {
     margin: 0;

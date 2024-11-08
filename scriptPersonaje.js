@@ -18,6 +18,99 @@ const edades = {
     "Venerable":new Edad(360,240,5,0)
 }
 
+const especialidadesPorHabilidad = {
+    "acrobacia":"agilidad",
+    "contorsionismo":"agilidad",
+    "equilibrio":"agilidad",
+    "esquivar":"agilidad",
+    "rapidez":"agilidad",
+
+    "arrojar":"brio",
+    "correr":"brio",
+    "fuerza":"brio",
+    "nadar":"brio",
+    "saltar":"brio",
+    "trepar":"brio",
+
+    "contundente":"combate",
+    "asta":"combate",
+    "hojaCorta":"combate",
+    "hojaLarga":"combate",
+    "escudo":"combate",
+    "esgrima":"combate",
+    "hacha":"combate",
+    "lanza":"combate",
+    "pelea":"combate",
+
+    "callejeo":"conocimiento",
+    "educacion":"conocimiento",
+    "investigacion":"conocimiento",
+
+    "diagnosticar":"curacion",
+    "tratarDolencia":"curacion",
+    "tratarHerida":"curacion",
+
+    "recuperacion":"constitucion",
+    "resistencia":"constitucion",
+
+    "pasarInadvertido":"discrecion",
+    "sigilo":"discrecion",
+
+    "actuar":"enganyo",
+    "disfrazarse":"enganyo",
+    "fulleria":"enganyo",
+    "mentir":"enganyo",
+
+    "administracion":"estatus",
+    "etiqueta":"estatus",
+    "reputacion":"estatus",
+    "torneos":"estatus",
+
+    "estrategia":"guerra",
+    "mando":"guerra",
+    "tactica":"guerra",
+
+    //"":"idioma",
+
+    "descifrar":"ingenio",
+    "logica":"ingenio",
+    "memoria":"ingenio",
+
+    "empatia":"percepcion",
+    "observacion":"percepcion",
+    
+    "cautivar":"persuasion",
+    "convencer":"persuasion",
+    "incitar":"persuasion",
+    "intimidar":"persuasion",
+    "negociar":"persuasion",
+    "provocar":"persuasion",
+    "seducir":"persuasion",
+
+    "forzarCerraduras":"picaresca",
+    "juegoDeManos":"picaresca",
+    "robar":"picaresca",
+
+    "armasArrojadizas":"punteria",
+    "arcos":"punteria",
+    "asedio":"punteria",
+    "ballestas":"punteria",
+
+    "cazar":"supervivencia",
+    "forrajear":"supervivencia",
+    "orientarse":"supervivencia",
+    "rastrear":"supervivencia",
+
+    "adiestrar":"tratoAnimal",
+    "cautivarAnimal":"tratoAnimal",
+    "conducir":"tratoAnimal",
+    "montar":"tratoAnimal",
+
+    "coordinacion":"voluntad",
+    "coraje":"voluntad",
+    "dedicacion":"voluntad",
+}
+
 // Constructores
 function Personaje(edad){
     this.nombre = ""; // Hacer que sea el nombre indicado
@@ -40,7 +133,7 @@ function Personaje(edad){
     this.picaresca = new Picaresca(2);
     this.punteria = new Punteria(2);
     this.supervivencia = new Supervivencia(2);
-    this.tratoanimal = new TratoAnimal(2);
+    this.tratoAnimal = new TratoAnimal(2);
     this.voluntad = new Voluntad(2);
 
     this.cualidades = {
@@ -440,24 +533,24 @@ Personaje.prototype.cambiarSupervivencia = function(cambio){
     }
 }
 Personaje.prototype.cambiarTratoAnimal = function(cambio){
-    if (cambio==1 && this.edad.maxHabilidad>this.tratoanimal.rango){
-        this.tratoanimal.rango += cambio;
-        if (this.tratoanimal.rango==3){
+    if (cambio==1 && this.edad.maxHabilidad>this.tratoAnimal.rango){
+        this.tratoAnimal.rango += cambio;
+        if (this.tratoAnimal.rango==3){
             this.edad.cambiarXpHabilidades(-10);
         }
         else {
             this.edad.cambiarXpHabilidades(-30);
         }
     }
-    else if (cambio==-1 && this.tratoanimal.rango>Math.abs(cambio)){
-        this.tratoanimal.rango += cambio;
-        if (this.tratoanimal.rango==2){
+    else if (cambio==-1 && this.tratoAnimal.rango>Math.abs(cambio)){
+        this.tratoAnimal.rango += cambio;
+        if (this.tratoAnimal.rango==2){
             this.edad.cambiarXpHabilidades(10);
         }
-        else if(this.tratoanimal.rango==1){
+        else if(this.tratoAnimal.rango==1){
             this.edad.cambiarXpHabilidades(50);
         }
-        else if(this.tratoanimal.rango>2){
+        else if(this.tratoAnimal.rango>2){
             this.edad.cambiarXpHabilidades(30);
         }
     }
@@ -541,7 +634,6 @@ function Combate(habilidad){
     this.escudo = 0;
     this.esgrima = 0;
     this.hacha = 0;
-    this.esgrima = 0;
     this.lanza = 0;
     this.pelea = 0;
 }
@@ -634,7 +726,7 @@ function Supervivencia(habilidad){
 function TratoAnimal(habilidad){
     this.rango = habilidad;
     this.adiestrar = 0;
-    this.cautivar = 0;
+    this.cautivarAnimal = 0;
     this.conducir = 0;
     this.montar = 0;
 }
@@ -670,13 +762,23 @@ var toggle = function (elem) {
 };
 
 // Funciones para los botones de cambiar una stat
-/*function botonAgilidad(cambio){
-    personaje.cambiarAgilidad(cambio);
-    document.getElementById('rangoAgilidad').innerHTML = personaje.agilidad.rango;
-}*/
 function botonHabilidad(cambio, habilidad) {
     personaje[`cambiar${habilidad}`](cambio); // Llama al método de cambio correspondiente, ej: cambiarAgilidad(cambio)
-    document.getElementById(`rango${habilidad}`).innerHTML = personaje[habilidad.toLowerCase()].rango; // Actualiza el rango
+    document.getElementById(`rango${habilidad}`).innerHTML = personaje[habilidad.charAt(0).toLowerCase()+especialidad.slice(1)].rango; // Actualiza el rango
+}
+function botonEspecialidad(cambio,especialidad) {
+    if (personaje[especialidadesPorHabilidad[especialidad]][especialidad]+cambio<=personaje[especialidadesPorHabilidad[especialidad]].rango && personaje[especialidadesPorHabilidad[especialidad]][especialidad]+cambio>=0){
+        personaje[especialidadesPorHabilidad[especialidad]][especialidad] += cambio;
+
+        if (cambio==1){
+            personaje.edad.xpEspecialidades += -10;
+        }
+        else if(cambio==-1){
+            personaje.edad.xpEspecialidades += 10;
+        }
+    }
+    document.getElementById(`nivel${especialidad.charAt(0).toUpperCase()+especialidad.slice(1)}`).innerHTML = personaje[especialidadesPorHabilidad[especialidad]][especialidad];
+
 }
 
 
@@ -687,26 +789,100 @@ function mostrarNiveles() {
     personaje = new Personaje(edad);
 
     document.getElementById('rangoAgilidad').innerHTML = personaje.agilidad.rango ;
+        botonEspecialidad(0,'acrobacia');
+        botonEspecialidad(0,'contorsionismo');
+        botonEspecialidad(0,'equilibrio');
+        botonEspecialidad(0,'esquivar');
+        botonEspecialidad(0,'rapidez');
     document.getElementById('rangoBrio').innerHTML = personaje.brio.rango ;
+        botonEspecialidad(0,'arrojar');
+        botonEspecialidad(0,'correr');
+        botonEspecialidad(0,'fuerza');
+        botonEspecialidad(0,'nadar');
+        botonEspecialidad(0,'saltar');
+        botonEspecialidad(0,'trepar');
     document.getElementById('rangoCombate').innerHTML = personaje.combate.rango ;
+        botonEspecialidad(0,'contundente');
+        botonEspecialidad(0,'asta');
+        botonEspecialidad(0,'hojaCorta');
+        botonEspecialidad(0,'hojaLarga');
+        botonEspecialidad(0,'escudo');
+        botonEspecialidad(0,'esgrima');
+        botonEspecialidad(0,'hacha');
+        botonEspecialidad(0,'lanza');
+        botonEspecialidad(0,'pelea');
     document.getElementById('rangoConocimiento').innerHTML = personaje.conocimiento.rango ;
+        botonEspecialidad(0,'callejeo');
+        botonEspecialidad(0,'educacion');
+        botonEspecialidad(0,'investigacion');
     document.getElementById('rangoConstitucion').innerHTML = personaje.constitucion.rango ;
+        botonEspecialidad(0,'recuperacion');
+        botonEspecialidad(0,'resistencia');
     document.getElementById('rangoCuracion').innerHTML = personaje.curacion.rango ;
+        botonEspecialidad(0,'diagnosticar');
+        botonEspecialidad(0,'tratarDolencia');
+        botonEspecialidad(0,'tratarHerida');
     document.getElementById('rangoDiscrecion').innerHTML = personaje.discrecion.rango ;
+        botonEspecialidad(0,'pasarInadvertido');
+        botonEspecialidad(0,'sigilo');
     document.getElementById('rangoEnganyo').innerHTML = personaje.enganyo.rango ;
+        botonEspecialidad(0,'actuar');
+        botonEspecialidad(0,'disfrazarse');
+        botonEspecialidad(0,'fulleria');
+        botonEspecialidad(0,'mentir');
     document.getElementById('rangoEstatus').innerHTML = personaje.estatus.rango ;
+        botonEspecialidad(0,'administracion');
+        botonEspecialidad(0,'etiqueta');
+        botonEspecialidad(0,'reputacion');
+        botonEspecialidad(0,'torneos');
     document.getElementById('rangoGuerra').innerHTML = personaje.guerra.rango ;
+        botonEspecialidad(0,'estrategia');
+        botonEspecialidad(0,'mando');
+        botonEspecialidad(0,'tactica');
     document.getElementById('rangoIdioma').innerHTML = personaje.idioma.rango ;
     document.getElementById('rangoIngenio').innerHTML = personaje.ingenio.rango ;
+        botonEspecialidad(0,'descifrar');
+        botonEspecialidad(0,'logica');
+        botonEspecialidad(0,'memoria');
     document.getElementById('rangoPercepcion').innerHTML = personaje.percepcion.rango ;
+        botonEspecialidad(0,'empatia');
+        botonEspecialidad(0,'observacion');
     document.getElementById('rangoPersuasion').innerHTML = personaje.persuasion.rango ;
+        botonEspecialidad(0,'cautivar');
+        botonEspecialidad(0,'convencer');
+        botonEspecialidad(0,'incitar');
+        botonEspecialidad(0,'intimidar');
+        botonEspecialidad(0,'negociar');
+        botonEspecialidad(0,'provocar');
+        botonEspecialidad(0,'seducir');
     document.getElementById('rangoPicaresca').innerHTML = personaje.picaresca.rango ;
+        botonEspecialidad(0,'forzarCerraduras');
+        botonEspecialidad(0,'juegoDeManos');
+        botonEspecialidad(0,'robar');
     document.getElementById('rangoPunteria').innerHTML = personaje.punteria.rango ;
+        botonEspecialidad(0,'armasArrojadizas');
+        botonEspecialidad(0,'arcos');
+        botonEspecialidad(0,'asedio');
+        botonEspecialidad(0,'ballestas');
     document.getElementById('rangoSupervivencia').innerHTML = personaje.supervivencia.rango ;
-    document.getElementById('rangoTratoAnimal').innerHTML = personaje.tratoanimal.rango ;
+        botonEspecialidad(0,'cazar');
+        botonEspecialidad(0,'forrajear');
+        botonEspecialidad(0,'orientarse');
+        botonEspecialidad(0,'rastrear');
+    document.getElementById('rangoTratoAnimal').innerHTML = personaje.tratoAnimal.rango ;
+        botonEspecialidad(0,'adiestrar');
+        botonEspecialidad(0,'cautivarAnimal');
+        botonEspecialidad(0,'conducir');
+        botonEspecialidad(0,'montar');
     document.getElementById('rangoVoluntad').innerHTML = personaje.voluntad.rango ;
+        botonEspecialidad(0,'coordinacion');
+        botonEspecialidad(0,'coraje');
+        botonEspecialidad(0,'dedicacion');
 
-    document.getElementById('nivelInformar').innerHTML = 'Nivel (Máx. '+personaje.edad.maxHabilidad+')';
+    document.getElementById('rangoInformar').innerHTML = 'Rango (Máx. '+personaje.edad.maxHabilidad+')';
+    document.getElementById('marcadorXpHabilidades').innerHTML = personaje.edad.xpHabilidades;
+    document.getElementById('marcadorXpEspecialidades').innerHTML = personaje.edad.xpEspecialidades;
+    document.getElementById('marcadorPuntosDestino').innerHTML = personaje.edad.puntosDestino;
 }
 
 
