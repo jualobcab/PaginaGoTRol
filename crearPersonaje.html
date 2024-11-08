@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de Personaje</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="stylePersonaje.css">
+</head>
+<body>
+    <script src="scriptPersonaje.js"></script>
+    <header>
+        <h2>Creación Personaje GoT</h2>
+    </header>
+    <div>
+        <div id="nombreEdad">
+            <div>
+                <label for="nombre">➢ <span>Nombre del personaje:</span></label>
+                <input type="text" name="nombre" id="nombre">
+            </div>
+            <div>
+                <label for="edad">➢ <span>Edad:</span></label>
+                <select name="edad" id="edad" onchange="mostrarNiveles()">
+                    <option value="" hidden></option>
+                    <option value="Ninyo">Niño (Infancia a 9 años)</option>
+                    <option value="Adolescente">Adolescente (De 10 a 13 años)</option>
+                    <option value="Joven">Joven (De 14 a 18 años)</option>
+                    <option value="Adulto">Adulto (De 18 a 30 años)</option>
+                    <option value="Mediana Edad">Mediana Edad (De 30 a 50)</option>
+                    <option value="Anciano">Anciano (De 50 a 70 años)</option>
+                    <option value="Muy Anciano">Muy Anciano (De 70 a 80 años)</option>
+                    <option value="Venerable">Venerable (80 o más años)</option>
+                </select>
+            </div>
+        </div>
+        <div id="tabla">
+            <table class="tabla">
+                <tr>
+                    <th colspan="2">Habilidad</th>
+                    <th id="nivelInformar">Nivel</th>
+                    <th>Especialidades</th>
+                </tr>
+                <tr>
+                    <td>Agilidad</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Agilidad')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Agilidad')"></td>
+                    <td id="rangoAgilidad"></td>
+                    <td id="listaEspecialidadesAgilidad" onclick="toggle(document.getElementById('especialidadesAgilidad'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesAgilidad">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Acrobacia</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Contorsionismo</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Equilibrio</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Esquivar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Rapidez</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brio</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Brio')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Brio')"></td>
+                    <td id="rangoBrio"></td>
+                    <td id="listaEspecialidadesBrio" onclick="toggle(document.getElementById('especialidadesBrio'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesBrio">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Arrojar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Correr</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Fuerza</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Nadar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Saltar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Trepar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Combate C/C</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Combate')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Combate')"></td>
+                    <td id="rangoCombate"></td>
+                    <td id="listaEspecialidadesCombate" onclick="toggle(document.getElementById('especialidadesCombate'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesCombate">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad de Armas</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Contundentes</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>De Asta</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>De Hoja Corta</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>De Hoja Larga</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Escudos</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Esgrima</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Hachas</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Lanzas</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Pelea</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Conocimiento</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Conocimiento')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Conocimiento')"></td>
+                    <td id="rangoConocimiento"></td>
+                    <td id="listaEspecialidadesConocimiento" onclick="toggle(document.getElementById('especialidadesConocimiento'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesConocimiento">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Callejeo</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Educación</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Investigación</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Constitución</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Constitucion')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Constitucion')"></td>
+                    <td id="rangoConstitucion"></td>
+                    <td id="listaEspecialidadesConstitucion" onclick="toggle(document.getElementById('especialidadesConstitucion'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesConstitucion">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Recuperación</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Resistencia</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Curación</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Curacion')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Curacion')"></td>
+                    <td id="rangoCuracion"></td>
+                    <td id="listaEspecialidadesCuracion" onclick="toggle(document.getElementById('especialidadesCuracion'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesCuracion">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Diagnosticar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Tratar Dolencia</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Tratar Herida</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Discreción</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Discrecion')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Discrecion')"></td>
+                    <td id="rangoDiscrecion"></td>
+                    <td id="listaEspecialidadesDiscrecion" onclick="toggle(document.getElementById('especialidadesDiscrecion'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesDiscrecion">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Pasar Inadvertido</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Sigilo</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Engaño</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Enganyo')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Enganyo')"></td>
+                    <td id="rangoEnganyo"></td>
+                    <td id="listaEspecialidadesEnganyo" onclick="toggle(document.getElementById('especialidadesEnganyo'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesEnganyo">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Actuar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Disfrazarse</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Fullería</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Mentir</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Estatus</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Estatus')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Estatus')"></td>                    
+                    <td id="rangoEstatus"></td>
+                    <td id="listaEspecialidadesEstatus" onclick="toggle(document.getElementById('especialidadesEstatus'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesEstatus">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Administración</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Etiqueta</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Reputación</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Torneos</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Guerra</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Guerra')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Guerra')"></td>                    
+                    <td id="rangoGuerra"></td>
+                    <td id="listaEspecialidadesGuerra" onclick="toggle(document.getElementById('especialidadesGuerra'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesGuerra">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Estrategia</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Mando</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Táctica</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Idioma</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Idioma')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Idioma')"></td>                    
+                    <td id="rangoIdioma"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ingenio</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Ingenio')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Ingenio')"></td>                    
+                    <td id="rangoIngenio"></td>
+                    <td id="listaEspecialidadesIngenio" onclick="toggle(document.getElementById('especialidadesIngenio'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesIngenio">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Descifrar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Lógica</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Memoria</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Percepción</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Percepcion')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Percepcion')"></td>                    
+                    <td id="rangoPercepcion"></td>
+                    <td id="listaEspecialidadesPercepción" onclick="toggle(document.getElementById('especialidadesPercepcion'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesPercepcion">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Empatía</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Observación</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Persuasión</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Persuasion')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Persuasion')"></td>
+                    <td id="rangoPersuasion"></td>
+                    <td id="listaEspecialidadesPersuasion" onclick="toggle(document.getElementById('especialidadesPersuasion'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesPersuasion">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Cautivar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Convencer</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Incitar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Intimidar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Negociar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Provocar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Seducir</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Picaresca</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Picaresca')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Picaresca')"></td>
+                    <td id="rangoPicaresca"></td>
+                    <td id="listaEspecialidadesPicaresca" onclick="toggle(document.getElementById('especialidadesPicaresca'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesPicaresca">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Forzar Cerraduras</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juego de Manos</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Robar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Puntería</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Punteria')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Punteria')"></td>
+                    <td id="rangoPunteria"></td>
+                    <td id="listaEspecialidadesPunteria" onclick="toggle(document.getElementById('especialidadesPunteria'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesPunteria">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Armas Arrojadizas</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Arcos</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Asedio</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Ballestas</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Supervivencia</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Supervivencia')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Supervivencia')"></td>
+                    <td id="rangoSupervivencia"></td>
+                    <td id="listaEspecialidadesSupervivencia" onclick="toggle(document.getElementById('especialidadesSupervivencia'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesSupervivencia">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Cazar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Forrajear</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Orientarse</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Rastrear</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trato Animal</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'TratoAnimal')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'TratoAnimal')"></td>
+                    <td id="rangoTratoAnimal"></td>
+                    <td id="listaEspecialidadesTratoAnimal" onclick="toggle(document.getElementById('especialidadesTratoAnimal'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesTratoAnimal">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Adiestrar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Cautivar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Conducir</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Montar</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Voluntad</td>
+                    <td class="botones"><input type="button" value="↑" onclick="botonHabilidad(1, 'Voluntad')"><input type="button" value="↓" onclick="botonHabilidad(-1, 'Voluntad')"></td>
+                    <td id="rangoVoluntad"></td>
+                    <td id="listaEspecialidadesVoluntad" onclick="toggle(document.getElementById('especialidadesVoluntad'))"></td>
+                </tr>
+                <tr style="display: none;" id="especialidadesVoluntad">
+                    <td colspan="4">
+                        <table class="especialidades">
+                            <tr>
+                                <th colspan="2">Especialidad</th>
+                                <th>Nivel</th>
+                                <th>Modificador Total</th>
+                            </tr>
+                            <tr>
+                                <td>Coordinación</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Coraje</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Dedicación</td>
+                                <td class="botones"><input type="button" value="↑"><input type="button" value="↓"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
