@@ -668,7 +668,7 @@ function Enganyo(habilidad){
 }
 function Estatus(habilidad){
     this.rango = habilidad;
-    this.administrador = 0;
+    this.administracion = 0;
     this.etiqueta = 0;
     this.reputacion = 0;
     this.torneos = 0;
@@ -706,7 +706,7 @@ function Persuasion(habilidad){
 function Picaresca(habilidad){
     this.rango = habilidad;
     this.forzarCerraduras = 0;
-    this.juegosDeManos = 0;
+    this.juegoDeManos = 0;
     this.robar = 0;
 }
 function Punteria(habilidad){
@@ -764,7 +764,8 @@ var toggle = function (elem) {
 // Funciones para los botones de cambiar una stat
 function botonHabilidad(cambio, habilidad) {
     personaje[`cambiar${habilidad}`](cambio); // Llama al método de cambio correspondiente, ej: cambiarAgilidad(cambio)
-    document.getElementById(`rango${habilidad}`).innerHTML = personaje[habilidad.charAt(0).toLowerCase()+especialidad.slice(1)].rango; // Actualiza el rango
+    document.getElementById(`rango${habilidad}`).innerHTML = personaje[habilidad.charAt(0).toLowerCase()+habilidad.slice(1)].rango; // Actualiza el rango
+    document.getElementById('marcadorXpHabilidades').innerHTML = personaje.edad.xpHabilidades;
 }
 function botonEspecialidad(cambio,especialidad) {
     if (personaje[especialidadesPorHabilidad[especialidad]][especialidad]+cambio<=personaje[especialidadesPorHabilidad[especialidad]].rango && personaje[especialidadesPorHabilidad[especialidad]][especialidad]+cambio>=0){
@@ -779,6 +780,7 @@ function botonEspecialidad(cambio,especialidad) {
     }
     document.getElementById(`nivel${especialidad.charAt(0).toUpperCase()+especialidad.slice(1)}`).innerHTML = personaje[especialidadesPorHabilidad[especialidad]][especialidad];
 
+    document.getElementById('marcadorXpEspecialidades').innerHTML = personaje.edad.xpEspecialidades;
 }
 
 
@@ -881,7 +883,6 @@ function mostrarNiveles() {
 
     document.getElementById('rangoInformar').innerHTML = 'Rango (Máx. '+personaje.edad.maxHabilidad+')';
     document.getElementById('marcadorXpHabilidades').innerHTML = personaje.edad.xpHabilidades;
-    document.getElementById('marcadorXpEspecialidades').innerHTML = personaje.edad.xpEspecialidades;
     document.getElementById('marcadorPuntosDestino').innerHTML = personaje.edad.puntosDestino;
 }
 
